@@ -1,0 +1,37 @@
+version: '3'
+#volumes:
+#  blockchain_data:
+services:
+  alfis_dns:
+    image: alfis:ubuntu
+    container_name: alfis
+    networks:
+      - block_chain_network:
+    volumes:
+      - '/home/virtuser/app/alfis/cache:/var/lib/alfis'
+      #- 'blockchain_data:/srv/emercoind'
+    restart: always
+    #command: ./bin/emercoind -datadir=/srv/emercoind -conf=/srv/emercoind/emercoin.conf
+    ports:
+      - "53:53"
+      - "53:53/udp"
+      - "4244:4244"
+
+    emc_dns:
+      image: emerdns:archlinux
+      container_name: emercoin_dns
+      networks:
+        - block_chain_network:
+      volumes:
+        - '/home/virtuser/app/emerdns/emercoin_data:/srv/emercoin_data'
+      #- 'blockchain_data:/srv/emercoind'
+      restart: always
+    #command: ./bin/emercoind -datadir=/srv/emercoind -conf=/srv/emercoind/emercoin.conf
+      ports:
+        - "6661:6661"
+        - "6662:6662"
+        - "5335:5335/udp"
+  
+networks:
+  block_chain_network:
+  

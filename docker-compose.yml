@@ -1,0 +1,46 @@
+version: '3.9'
+services:
+  alfis_dns:
+    image: alfis:archlinux
+    container_name: alfis
+    networks:
+      dns_network:
+        ipv4_address: 172.18.0.3
+    volumes:
+      - '../alfis_data:/app/alfis_data'
+    restart: always
+    ports:
+#      - "53:53"
+#      - "53:53/udp"
+      - "4244:4244"
+
+  emercoin_dns:
+    image: emercoin:archlinux
+    container_name: emercoin
+    networks:
+      dns_network:
+        ipv4_address: 172.18.0.2
+    volumes:
+      - '../emercoin_data:/srv/emercoin_data'
+    restart: always
+    ports:
+      - "6661:6661"
+      - "6662:6662"
+#      - "5335:5335/udp"
+  dnsmasq:
+    image: dnsmasq:scratch
+    container_name: dnsmasq
+    networks:
+      dns_network:
+        ipv4_address: 172.18.0.4
+    restart: always
+    ports:
+      - "53:1053/udp"
+  
+networks:
+  dns_network:
+    name: blockchain_dns
+    ipam:
+      config:
+        - subnet: "172.18.0.0/24"
+  

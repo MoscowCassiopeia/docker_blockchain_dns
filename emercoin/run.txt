@@ -1,0 +1,1 @@
+docker run -d -p 6661:6661 -p 5335:5335/udp -p 6662:6662 -m 536870912 --name emercoin -v /home/virtuser/app/emerdns/emercoin_data:/srv/emercoin_data emercoin:archlinux

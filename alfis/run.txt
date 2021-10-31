@@ -1,0 +1,1 @@
+docker run -d -p 4244:4244 -p 53:53 -p 53:53/udp -m 536870912 --name alfis -v /home/virtuser/app/alfis/cache:/app/alfis_data alfis:archlinux

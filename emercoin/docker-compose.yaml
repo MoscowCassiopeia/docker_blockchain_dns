@@ -1,0 +1,17 @@
+version: '3'
+
+#volumes:
+#  blockchain_data:
+
+services:
+  emc_dns:
+    image: emerdns:archlinux
+    volumes:
+      - '../emercoin_data:/srv/emercoin_data'
+      #- 'blockchain_data:/srv/emercoind'
+    restart: always
+    #command: ./bin/emercoind -datadir=/srv/emercoind -conf=/srv/emercoind/emercoin.conf
+    ports:
+      - "6661:6661"
+      - "6662:6662"
+      - "5335:5335/udp"

@@ -1,0 +1,1 @@
+docker build -t dnsmasq:scratch ./dnsmasq && docker build -t emercoin:archlinux ./emercoin && docker build -t alfis:archlinux ./alfis && docker-compose up -d
