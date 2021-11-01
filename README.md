@@ -19,7 +19,10 @@ docker build -t emercoin:archlinux ./emercoin && \
 docker build -t alfis:archlinux ./alfis && \
 docker-compose up -d
 ```
+После запуска контейнеров сразу начнет закачиваться блокчейн Emercoin и Alfis. Это может занять около часа, может и больше. 
 После этого у вас на всех интерфейсах локальной машины будет открыт порт 53 через который можно резольвить зоны БЧ Emercoin, Alfis и обычные доменные имена интерета,
 которые будут пересылаться через Alfis --> DoH --> Default Upstream Server
+
+Проверить работоспособность можно командой `dig AAAA @127.0.0.1 howto.ygg` для Alfis и `dig @127.0.0.1 rutor.lib` для Emercoin. 
 
 Если вы будете менять имена `images` при сборке образов то не забудьте поменять их и в файле `docker-compose.yml`
