@@ -19,6 +19,6 @@ docker build -t alfis:archlinux ./alfis && \
 docker-compose up -d
 ```
 После этого у вас на всех интерфейсах локальной машины будет открыт порт 53 через который можно резольвить зоны БЧ Emercoin, Alfis и обычные доменные имена интерета,
-которые будут пересылаться через Alfis --> DoH --> Defaul Upstream Server
+которые будут пересылаться через Alfis --> DoH --> Default Upstream Server
 
 Если вы будете менять имена images то не забудьте поменять их и в файле `docker-compose.yml` 
