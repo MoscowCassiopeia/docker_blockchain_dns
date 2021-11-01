@@ -25,4 +25,4 @@ COPY --from=build --chown=10000:10000 /rootfs /
 USER 10000:10000
 EXPOSE 1053/udp
 ENTRYPOINT ["/bin/dnsmasq"]
-CMD ["--keep-in-foreground", "--port=1053", "--server=172.18.0.3#53", "--server=/lib/emc/bazar/coin/172.18.0.2#5335", "--bogus-priv"]
+CMD ["--keep-in-foreground", "--port=1053", "--server=172.18.0.3#53", "--server=/lib/emc/bazar/coin/172.18.0.2#5335", "--bogus-priv", "--no-negcache"]
