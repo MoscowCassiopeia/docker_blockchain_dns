@@ -3,7 +3,7 @@ dns based on blockchain `alfis`  and `emercoin`
 
 
 
-Конфигурационные файлы для сборки образов для Dokcer (докерфайлы/Dockerfile) и `docker-compose.yml` позволят собрать связку из трех `Docker` контейнеров,
+Конфигурационные файлы для сборки образов Docker (докерфайлы/Dockerfile) и конфигурационный файл для запуска и управления контейнерами `docker-compose.yml` позволят собрать связку из трех `Docker` контейнеров,
 которая обеспечит разрешение имён в DNS зонах блокчейнов `Emercoin` и `Alfis`. Эти децентрализованные DNS системы используются в том числе
 в [Оверлейной сети Yggdrasil](https://ru.wikipedia.org/wiki/Yggdrasil)
 
